@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20160710 20:56:23.409" generator="Robot 3.0 (Python 2.7.10 on win32)">
+<suite source="C:\Users\gurpreetsingh\PycharmProjects\robot-framework-xke\UI\Test\Form.robot" id="s1" name="Form">
+<test id="s1-t1" name="websiteform">
+<kw type="setup" name="Setup Website Url" library="common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${websiteurl}</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20160710 20:56:23.534" level="INFO">Opening browser 'chrome' to base url 'http://gsbamrah.github.io'</msg>
+<status status="PASS" endtime="20160710 20:56:30.461" starttime="20160710 20:56:23.534"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160710 20:56:30.640" starttime="20160710 20:56:30.462"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:30.640" starttime="20160710 20:56:23.534"></status>
+</kw>
+<kw name="Click on the practice form and then select form from the menu" library="Formkeywords">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_PracticeForm}</arg>
+</arguments>
+<msg timestamp="20160710 20:56:30.644" level="INFO">Clicking element 'id=prac-form'.</msg>
+<status status="PASS" endtime="20160710 20:56:30.765" starttime="20160710 20:56:30.643"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>(document.getElementById('${HomePage_Menu_Form}').click())</arg>
+</arguments>
+<msg timestamp="20160710 20:56:30.766" level="INFO">Executing JavaScript:
+(document.getElementById('testform').click())</msg>
+<status status="PASS" endtime="20160710 20:56:31.362" starttime="20160710 20:56:30.766"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.362" starttime="20160710 20:56:30.642"></status>
+</kw>
+<kw name="Verify the form Page Url" library="Formkeywords">
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>form.html</arg>
+</arguments>
+<msg timestamp="20160710 20:56:31.368" level="INFO">Current location contains 'form.html'.</msg>
+<status status="PASS" endtime="20160710 20:56:31.368" starttime="20160710 20:56:31.363"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.368" starttime="20160710 20:56:31.362"></status>
+</kw>
+<kw name="Enter the first and last Name" library="Formkeywords">
+<arguments>
+<arg>Gurpreet</arg>
+<arg>Singh</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_FirstName}</arg>
+<arg>${Firstname}</arg>
+</arguments>
+<msg timestamp="20160710 20:56:31.369" level="INFO">Typing text 'Gurpreet' into text field 'id=namefirst'</msg>
+<status status="PASS" endtime="20160710 20:56:31.461" starttime="20160710 20:56:31.369"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_LastName}</arg>
+<arg>${LastName}</arg>
+</arguments>
+<msg timestamp="20160710 20:56:31.462" level="INFO">Typing text 'Singh' into text field 'name=lastname'</msg>
+<status status="PASS" endtime="20160710 20:56:31.555" starttime="20160710 20:56:31.461"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.555" starttime="20160710 20:56:31.368"></status>
+</kw>
+<kw name="Select the Gender" library="Formkeywords">
+<arguments>
+<arg>male</arg>
+</arguments>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>sex</arg>
+<arg>${gender}</arg>
+</arguments>
+<msg timestamp="20160710 20:56:31.557" level="INFO">Selecting 'male' from radio button 'sex'.</msg>
+<status status="PASS" endtime="20160710 20:56:31.623" starttime="20160710 20:56:31.557"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.623" starttime="20160710 20:56:31.556"></status>
+</kw>
+<kw name="Select the Country" library="Formkeywords">
+<arguments>
+<arg>2</arg>
+</arguments>
+<kw name="Select From List By Index" library="Selenium2Library">
+<doc>Selects `*indexes` from list identified by `locator`</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_Country}</arg>
+<arg>${country}</arg>
+</arguments>
+<msg timestamp="20160710 20:56:31.625" level="INFO">Selecting index(es) '2' from list 'name=Country'.</msg>
+<status status="PASS" endtime="20160710 20:56:31.756" starttime="20160710 20:56:31.624"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.757" starttime="20160710 20:56:31.624"></status>
+</kw>
+<kw name="Select the Checkbox" library="Formkeywords">
+<kw name="Select Checkbox" library="Selenium2Library">
+<doc>Selects checkbox identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_Checkbox}</arg>
+</arguments>
+<msg timestamp="20160710 20:56:31.758" level="INFO">Selecting checkbox 'name=vehicle1'.</msg>
+<status status="PASS" endtime="20160710 20:56:31.827" starttime="20160710 20:56:31.758"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.828" starttime="20160710 20:56:31.757"></status>
+</kw>
+<kw name="Select the Dateofbirth" library="Formkeywords">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_DOB}</arg>
+</arguments>
+<msg timestamp="20160710 20:56:31.829" level="INFO">Clicking element 'name=bday'.</msg>
+<status status="PASS" endtime="20160710 20:56:31.885" starttime="20160710 20:56:31.829"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.885" starttime="20160710 20:56:31.828"></status>
+</kw>
+<kw name="Upload the Image" library="Formkeywords">
+<kw name="Choose File" library="Selenium2Library">
+<doc>Inputs the `file_path` into file input field found by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_Image}</arg>
+<arg>C:\\Users\\gurpreetsingh\\PycharmProjects\\robot-framework-xke\\UI\\a.png</arg>
+</arguments>
+<status status="PASS" endtime="20160710 20:56:31.935" starttime="20160710 20:56:31.886"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.936" starttime="20160710 20:56:31.886"></status>
+</kw>
+<status status="PASS" endtime="20160710 20:56:31.936" critical="yes" starttime="20160710 20:56:23.534"></status>
+</test>
+<doc>This is basic form test</doc>
+<status status="PASS" endtime="20160710 20:56:31.939" starttime="20160710 20:56:23.409"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Form" pass="1">Form</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
