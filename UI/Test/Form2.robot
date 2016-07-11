@@ -12,7 +12,7 @@ websiteform2
     Click on the practice form and then select form from the menu
     Verify the form Page Url
     Fill Up the form
-    Verify form submitted Successfully
+    Verify form submitted Successfully    Gurpreet Singh Thank You for Your Submission
 
 
 
