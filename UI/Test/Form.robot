@@ -15,9 +15,9 @@ websiteform
     Select the Gender   male
     Select the Country   2
     Select the Checkbox
-    Select the Dateofbirth
+  #  Select the Dateofbirth
     Upload the Image
-  #  Click the Alert
+    Click the Alert
     Click on the Submit Button
     Verify form submitted Successfully     Gurpreet Singh Thank You for Your Submission
 
