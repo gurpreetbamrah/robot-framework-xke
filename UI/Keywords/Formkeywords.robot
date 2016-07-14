@@ -21,8 +21,6 @@ Select the Country
    select from list by index      ${HomePage_Menu_Form_Country}     ${country}
 Select the Checkbox
    select checkbox         ${HomePage_Menu_Form_Checkbox}
-Select the Dateofbirth
-   input text   ${HomePage_Menu_Form_DOB}    09072016
 Upload the Image
    choose file     ${HomePage_Menu_Form_Image}        C:\\Users\\gurpreetsingh\\PycharmProjects\\robot-framework-xke\\UI\\a.png
 Click the Alert
@@ -39,7 +37,6 @@ Fill Up the form
     Select the Gender   male
     Select the Country  2
     Select the Checkbox
- #   Select the Dateofbirth
     Upload the Image
     Click the Alert
     Click on the Submit Button

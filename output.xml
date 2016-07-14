@@ -1,412 +1,290 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20160711 22:02:23.318" generator="Robot 3.0 (Python 2.7.10 on win32)">
-<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\UI\Test" id="s1" name="Test">
-<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\UI\Test\Form.robot" id="s1-s1" name="Form">
-<test id="s1-s1-t1" name="websiteform">
-<kw type="setup" name="Setup Website Url" library="common">
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to given URL.</doc>
+<robot generated="20160714 13:06:25.814" generator="Robot 3.0 (Python 2.7.10 on win32)">
+<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\Rest-Api\Test" id="s1" name="Test">
+<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\Rest-Api\Test\GetRequest.robot" id="s1-s1" name="GetRequest">
+<test id="s1-s1-t1" name="Get Request Demo">
+<kw name="I send the Http Get Request" library="apikeywords">
 <arguments>
-<arg>${websiteurl}</arg>
-<arg>chrome</arg>
+<arg>${getrequesturl}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:23.478" level="INFO">Opening browser 'chrome' to base url 'http://gsbamrah.github.io'</msg>
-<status status="PASS" endtime="20160711 22:02:27.821" starttime="20160711 22:02:23.478"></status>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20160711 22:02:28.003" starttime="20160711 22:02:27.821"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:28.004" starttime="20160711 22:02:23.462"></status>
-</kw>
-<kw name="Click on the practice form and then select form from the menu" library="Formkeywords">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
+<assign>
+<var>${response}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
-<arg>${HomePage_Menu_PracticeForm}</arg>
+<arg>testurl</arg>
+<arg>${URL}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.008" level="INFO">Clicking element 'id=prac-form'.</msg>
-<status status="PASS" endtime="20160711 22:02:28.107" starttime="20160711 22:02:28.006"></status>
+<msg timestamp="20160714 13:06:26.032" level="INFO">Creating Session using : alias=testurl, url=http://localhost:8080/robot, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20160714 13:06:26.032" starttime="20160714 13:06:26.032"></status>
 </kw>
-<kw name="Execute Javascript" library="Selenium2Library">
-<doc>Executes the given JavaScript code.</doc>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
 <arguments>
-<arg>(document.getElementById('${HomePage_Menu_Form}').click())</arg>
+<arg>testurl</arg>
+<arg>/</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.108" level="INFO">Executing JavaScript:
-(document.getElementById('testform').click())</msg>
-<status status="PASS" endtime="20160711 22:02:28.495" starttime="20160711 22:02:28.108"></status>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.032" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20160714 13:06:26.235" level="INFO">Get Request using : alias=testurl, uri=/, headers=None </msg>
+<msg timestamp="20160714 13:06:26.235" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.032"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:28.495" starttime="20160711 22:02:28.005"></status>
+<msg timestamp="20160714 13:06:26.235" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.032"></status>
 </kw>
-<kw name="Verify the form Page Url" library="Formkeywords">
-<kw name="Location Should Contain" library="Selenium2Library">
-<doc>Verifies that current URL contains `expected`.</doc>
+<kw name="and I validate the Response code" library="apikeywords">
 <arguments>
-<arg>form.html</arg>
+<arg>${response}</arg>
+<arg>200</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.504" level="INFO">Current location contains 'form.html'.</msg>
-<status status="PASS" endtime="20160711 22:02:28.504" starttime="20160711 22:02:28.496"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:28.504" starttime="20160711 22:02:28.496"></status>
-</kw>
-<kw name="Enter the first and last Name" library="Formkeywords">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
+<arg>${response.status_code}</arg>
+<arg>${response_code}</arg>
+</arguments>
+<msg timestamp="20160714 13:06:26.235" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.235"></status>
+</kw>
+<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.235"></status>
+</kw>
+<kw name="I send HTTP Request with the Parameter" library="apikeywords">
+<arguments>
+<arg>${Param1}</arg>
 <arg>Gurpreet</arg>
-<arg>Singh</arg>
 </arguments>
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
+<assign>
+<var>${response}</var>
+</assign>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
 <arguments>
-<arg>${HomePage_Menu_Form_FirstName}</arg>
-<arg>${Firstname}</arg>
+<arg>testurl</arg>
+<arg>?${param}=${value}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.505" level="INFO">Typing text 'Gurpreet' into text field 'id=namefirst'</msg>
-<status status="PASS" endtime="20160711 22:02:28.595" starttime="20160711 22:02:28.505"></status>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.251" level="INFO">Get Request using : alias=testurl, uri=?name=Gurpreet, headers=None </msg>
+<msg timestamp="20160714 13:06:26.251" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.235"></status>
 </kw>
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20160714 13:06:26.251" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.235"></status>
+</kw>
+<kw name="I validate the Response code" library="apikeywords">
 <arguments>
-<arg>${HomePage_Menu_Form_LastName}</arg>
-<arg>${LastName}</arg>
+<arg>${response}</arg>
+<arg>200</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.596" level="INFO">Typing text 'Singh' into text field 'name=lastname'</msg>
-<status status="PASS" endtime="20160711 22:02:28.686" starttime="20160711 22:02:28.595"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:28.687" starttime="20160711 22:02:28.505"></status>
-</kw>
-<kw name="Select the Gender" library="Formkeywords">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>male</arg>
+<arg>${response.status_code}</arg>
+<arg>${response_code}</arg>
 </arguments>
-<kw name="Select Radio Button" library="Selenium2Library">
-<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<msg timestamp="20160714 13:06:26.251" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
+</kw>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
+</kw>
+<kw name="and I validate the Get Request Response" library="apikeywords">
 <arguments>
-<arg>sex</arg>
-<arg>${gender}</arg>
+<arg>${response}</arg>
+<arg>${Responsecontent}</arg>
+<arg>Hello, Gurpreet!</arg>
+<arg>${Responseid}</arg>
+<arg>1</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.688" level="INFO">Selecting 'male' from radio button 'sex'.</msg>
-<status status="PASS" endtime="20160711 22:02:28.752" starttime="20160711 22:02:28.688"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:28.752" starttime="20160711 22:02:28.688"></status>
-</kw>
-<kw name="Select the Country" library="Formkeywords">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
 <arguments>
-<arg>2</arg>
+<arg>${response.json()}</arg>
 </arguments>
-<kw name="Select From List By Index" library="Selenium2Library">
-<doc>Selects `*indexes` from list identified by `locator`</doc>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.251" level="INFO">${json} = {u'content': u'Hello, Gurpreet!', u'id': 1}</msg>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
 <arguments>
-<arg>${HomePage_Menu_Form_Country}</arg>
-<arg>${country}</arg>
+<arg>${json}</arg>
+<arg>${Responsecontent}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.754" level="INFO">Selecting index(es) '2' from list 'name=Country'.</msg>
-<status status="PASS" endtime="20160711 22:02:28.887" starttime="20160711 22:02:28.753"></status>
+<assign>
+<var>${contentvaluefromresponse}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.251" level="INFO">${contentvaluefromresponse} = Hello, Gurpreet!</msg>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:28.887" starttime="20160711 22:02:28.753"></status>
-</kw>
-<kw name="Select the Checkbox" library="Formkeywords">
-<kw name="Select Checkbox" library="Selenium2Library">
-<doc>Selects checkbox identified by `locator`.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>${HomePage_Menu_Form_Checkbox}</arg>
+<arg>${contentvaluefromresponse}</arg>
+<arg>${contentvalue}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:28.889" level="INFO">Selecting checkbox 'name=vehicle1'.</msg>
-<status status="PASS" endtime="20160711 22:02:28.956" starttime="20160711 22:02:28.888"></status>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:28.957" starttime="20160711 22:02:28.888"></status>
-</kw>
-<kw name="Upload the Image" library="Formkeywords">
-<kw name="Choose File" library="Selenium2Library">
-<doc>Inputs the `file_path` into file input field found by `locator`.</doc>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
 <arguments>
-<arg>${HomePage_Menu_Form_Image}</arg>
-<arg>C:\\Users\\gurpreetsingh\\PycharmProjects\\robot-framework-xke\\UI\\a.png</arg>
+<arg>${json}</arg>
+<arg>${Responseid}</arg>
 </arguments>
-<status status="PASS" endtime="20160711 22:02:29.008" starttime="20160711 22:02:28.958"></status>
+<assign>
+<var>${idvaluefromresponse}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.251" level="INFO">${idvaluefromresponse} = 1</msg>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:29.008" starttime="20160711 22:02:28.957"></status>
-</kw>
-<kw name="Click the Alert" library="Formkeywords">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>${HomePage_Menu_Form_Alert}</arg>
+<arg>${idvaluefromresponse}</arg>
+<arg>${idvalue}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:29.009" level="INFO">Clicking element 'xpath=//input[@value='I am Alert']'.</msg>
-<status status="PASS" endtime="20160711 22:02:29.074" starttime="20160711 22:02:29.009"></status>
+<msg timestamp="20160714 13:06:26.251" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5</arg>
-</arguments>
-<msg timestamp="20160711 22:02:34.089" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" endtime="20160711 22:02:34.089" starttime="20160711 22:02:29.074"></status>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
 </kw>
-<kw name="Alert Should Be Present" library="Selenium2Library">
-<doc>Verifies an alert is present and dismisses it.</doc>
-<arguments>
-<arg>I am an alert box!</arg>
-</arguments>
-<status status="PASS" endtime="20160711 22:02:34.098" starttime="20160711 22:02:34.089"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:34.099" starttime="20160711 22:02:29.009"></status>
-</kw>
-<kw name="Click on the Submit Button" library="Formkeywords">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${HomePage_Menu_Form_Submit}</arg>
-</arguments>
-<msg timestamp="20160711 22:02:34.104" level="INFO">Clicking element '//input[@type='submit']'.</msg>
-<status status="PASS" endtime="20160711 22:02:34.174" starttime="20160711 22:02:34.104"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:34.174" starttime="20160711 22:02:34.103"></status>
-</kw>
-<kw name="Verify form submitted Successfully" library="Formkeywords">
-<arguments>
-<arg>Gurpreet Singh Thank You for Your Submission</arg>
-</arguments>
-<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<arguments>
-<arg>5times</arg>
-<arg>2s</arg>
-<arg>element should contain</arg>
-<arg>${HomePage_Menu_Form_Submit_Message}</arg>
-<arg>${message}</arg>
-</arguments>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies element identified by `locator` contains text `expected`.</doc>
-<arguments>
-<arg>${HomePage_Menu_Form_Submit_Message}</arg>
-<arg>${message}</arg>
-</arguments>
-<msg timestamp="20160711 22:02:34.176" level="INFO">Verifying element 'id=demo' contains text 'Gurpreet Singh Thank You for Your Submission'.</msg>
-<status status="PASS" endtime="20160711 22:02:34.217" starttime="20160711 22:02:34.176"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:34.217" starttime="20160711 22:02:34.175"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:34.217" starttime="20160711 22:02:34.175"></status>
-</kw>
-<kw type="teardown" name="Teardown Website Url" library="common">
-<kw name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20160711 22:02:35.373" starttime="20160711 22:02:34.217"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:35.373" starttime="20160711 22:02:34.217"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:35.373" critical="yes" starttime="20160711 22:02:23.462"></status>
+<status status="PASS" endtime="20160714 13:06:26.251" critical="yes" starttime="20160714 13:06:26.032"></status>
 </test>
-<doc>This is basic form test</doc>
-<status status="PASS" endtime="20160711 22:02:35.373" starttime="20160711 22:02:23.349"></status>
+<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:25.845"></status>
 </suite>
-<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\UI\Test\Form2.robot" id="s1-s2" name="Form2">
-<test id="s1-s2-t1" name="websiteform2">
-<kw type="setup" name="Setup Website Url" library="common">
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to given URL.</doc>
+<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\Rest-Api\Test\PostRequest.robot" id="s1-s2" name="PostRequest">
+<test id="s1-s2-t1" name="Post Request Demo">
+<kw name="I send the Http Post Request" library="apikeywords">
 <arguments>
-<arg>${websiteurl}</arg>
-<arg>chrome</arg>
+<arg>${Postrequesturl}</arg>
+<arg>${RequestParam1}</arg>
+<arg>${emailID}</arg>
+<arg>${RequestParam2}</arg>
+<arg>${activationsuccess}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:35.404" level="INFO">Opening browser 'chrome' to base url 'http://gsbamrah.github.io'</msg>
-<status status="PASS" endtime="20160711 22:02:38.978" starttime="20160711 22:02:35.404"></status>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20160711 22:02:39.161" starttime="20160711 22:02:38.978"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:39.162" starttime="20160711 22:02:35.404"></status>
-</kw>
-<kw name="Click on the practice form and then select form from the menu" library="Formkeywords">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
+<assign>
+<var>${response}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
-<arg>${HomePage_Menu_PracticeForm}</arg>
+<arg>testurl2</arg>
+<arg>${Postrequesturl}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:39.165" level="INFO">Clicking element 'id=prac-form'.</msg>
-<status status="PASS" endtime="20160711 22:02:39.286" starttime="20160711 22:02:39.164"></status>
+<msg timestamp="20160714 13:06:26.267" level="INFO">Creating Session using : alias=testurl2, url=http://localhost:8080/user, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20160714 13:06:26.267" starttime="20160714 13:06:26.267"></status>
 </kw>
-<kw name="Execute Javascript" library="Selenium2Library">
-<doc>Executes the given JavaScript code.</doc>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
 <arguments>
-<arg>(document.getElementById('${HomePage_Menu_Form}').click())</arg>
+<arg>testurl2</arg>
+<arg>?${RequestParam1}=${emailID}&amp;${RequestParam2}=${activatevalue}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:39.286" level="INFO">Executing JavaScript:
-(document.getElementById('testform').click())</msg>
-<status status="PASS" endtime="20160711 22:02:39.665" starttime="20160711 22:02:39.286"></status>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.267" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20160714 13:06:26.282" level="INFO">Post Request using : alias=testurl2, uri=?email=gurpreetsingh@xebia.com&amp;activate=1, data=None,                     headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20160714 13:06:26.282" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.267"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:39.666" starttime="20160711 22:02:39.163"></status>
+<msg timestamp="20160714 13:06:26.282" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.267"></status>
 </kw>
-<kw name="Verify the form Page Url" library="Formkeywords">
-<kw name="Location Should Contain" library="Selenium2Library">
-<doc>Verifies that current URL contains `expected`.</doc>
+<kw name="I validate the Response code" library="apikeywords">
 <arguments>
-<arg>form.html</arg>
+<arg>${response}</arg>
+<arg>200</arg>
 </arguments>
-<msg timestamp="20160711 22:02:39.672" level="INFO">Current location contains 'form.html'.</msg>
-<status status="PASS" endtime="20160711 22:02:39.672" starttime="20160711 22:02:39.666"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:39.672" starttime="20160711 22:02:39.666"></status>
-</kw>
-<kw name="Fill Up the form" library="Formkeywords">
-<kw name="Enter the first and last Name" library="Formkeywords">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>Gurpreet</arg>
-<arg>Singh</arg>
+<arg>${response.status_code}</arg>
+<arg>${response_code}</arg>
 </arguments>
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20160714 13:06:26.282" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
+</kw>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
+</kw>
+<kw name="and I validate the Post Request Response" library="apikeywords">
 <arguments>
-<arg>${HomePage_Menu_Form_FirstName}</arg>
-<arg>${Firstname}</arg>
+<arg>${response}</arg>
+<arg>user activated successfully</arg>
+<arg>${emailID}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:39.674" level="INFO">Typing text 'Gurpreet' into text field 'id=namefirst'</msg>
-<status status="PASS" endtime="20160711 22:02:39.762" starttime="20160711 22:02:39.673"></status>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
 <arguments>
-<arg>${HomePage_Menu_Form_LastName}</arg>
-<arg>${LastName}</arg>
+<arg>${response.json()}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:39.763" level="INFO">Typing text 'Singh' into text field 'name=lastname'</msg>
-<status status="PASS" endtime="20160711 22:02:39.855" starttime="20160711 22:02:39.763"></status>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.282" level="INFO">${json} = {u'status': u'user activated successfully', u'email': u'gurpreetsingh@xebia.com'}</msg>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:39.855" starttime="20160711 22:02:39.673"></status>
-</kw>
-<kw name="Select the Gender" library="Formkeywords">
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
 <arguments>
-<arg>male</arg>
+<arg>${json}</arg>
+<arg>status</arg>
 </arguments>
-<kw name="Select Radio Button" library="Selenium2Library">
-<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<assign>
+<var>${statusfromresponse}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.282" level="INFO">${statusfromresponse} = user activated successfully</msg>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>sex</arg>
-<arg>${gender}</arg>
+<arg>${statusfromresponse}</arg>
+<arg>${status}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:39.856" level="INFO">Selecting 'male' from radio button 'sex'.</msg>
-<status status="PASS" endtime="20160711 22:02:39.924" starttime="20160711 22:02:39.856"></status>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:39.924" starttime="20160711 22:02:39.855"></status>
-</kw>
-<kw name="Select the Country" library="Formkeywords">
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
 <arguments>
-<arg>2</arg>
+<arg>${json}</arg>
+<arg>email</arg>
 </arguments>
-<kw name="Select From List By Index" library="Selenium2Library">
-<doc>Selects `*indexes` from list identified by `locator`</doc>
+<assign>
+<var>${emailfromresponse}</var>
+</assign>
+<msg timestamp="20160714 13:06:26.282" level="INFO">${emailfromresponse} = gurpreetsingh@xebia.com</msg>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>${HomePage_Menu_Form_Country}</arg>
-<arg>${country}</arg>
+<arg>${emailfromresponse}</arg>
+<arg>${email}</arg>
 </arguments>
-<msg timestamp="20160711 22:02:39.925" level="INFO">Selecting index(es) '2' from list 'name=Country'.</msg>
-<status status="PASS" endtime="20160711 22:02:40.053" starttime="20160711 22:02:39.924"></status>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
 </kw>
-<status status="PASS" endtime="20160711 22:02:40.054" starttime="20160711 22:02:39.924"></status>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
 </kw>
-<kw name="Select the Checkbox" library="Formkeywords">
-<kw name="Select Checkbox" library="Selenium2Library">
-<doc>Selects checkbox identified by `locator`.</doc>
-<arguments>
-<arg>${HomePage_Menu_Form_Checkbox}</arg>
-</arguments>
-<msg timestamp="20160711 22:02:40.055" level="INFO">Selecting checkbox 'name=vehicle1'.</msg>
-<status status="PASS" endtime="20160711 22:02:40.121" starttime="20160711 22:02:40.055"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:40.122" starttime="20160711 22:02:40.054"></status>
-</kw>
-<kw name="Upload the Image" library="Formkeywords">
-<kw name="Choose File" library="Selenium2Library">
-<doc>Inputs the `file_path` into file input field found by `locator`.</doc>
-<arguments>
-<arg>${HomePage_Menu_Form_Image}</arg>
-<arg>C:\\Users\\gurpreetsingh\\PycharmProjects\\robot-framework-xke\\UI\\a.png</arg>
-</arguments>
-<status status="PASS" endtime="20160711 22:02:40.179" starttime="20160711 22:02:40.122"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:40.179" starttime="20160711 22:02:40.122"></status>
-</kw>
-<kw name="Click the Alert" library="Formkeywords">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${HomePage_Menu_Form_Alert}</arg>
-</arguments>
-<msg timestamp="20160711 22:02:40.180" level="INFO">Clicking element 'xpath=//input[@value='I am Alert']'.</msg>
-<status status="PASS" endtime="20160711 22:02:40.246" starttime="20160711 22:02:40.180"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5</arg>
-</arguments>
-<msg timestamp="20160711 22:02:45.252" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" endtime="20160711 22:02:45.252" starttime="20160711 22:02:40.247"></status>
-</kw>
-<kw name="Alert Should Be Present" library="Selenium2Library">
-<doc>Verifies an alert is present and dismisses it.</doc>
-<arguments>
-<arg>I am an alert box!</arg>
-</arguments>
-<status status="PASS" endtime="20160711 22:02:45.270" starttime="20160711 22:02:45.252"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:45.271" starttime="20160711 22:02:40.179"></status>
-</kw>
-<kw name="Click on the Submit Button" library="Formkeywords">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${HomePage_Menu_Form_Submit}</arg>
-</arguments>
-<msg timestamp="20160711 22:02:45.275" level="INFO">Clicking element '//input[@type='submit']'.</msg>
-<status status="PASS" endtime="20160711 22:02:45.355" starttime="20160711 22:02:45.274"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:45.355" starttime="20160711 22:02:45.272"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:45.356" starttime="20160711 22:02:39.673"></status>
-</kw>
-<kw name="Verify form submitted Successfully" library="Formkeywords">
-<arguments>
-<arg>Gurpreet Singh Thank You for Your Submission</arg>
-</arguments>
-<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<arguments>
-<arg>5times</arg>
-<arg>2s</arg>
-<arg>element should contain</arg>
-<arg>${HomePage_Menu_Form_Submit_Message}</arg>
-<arg>${message}</arg>
-</arguments>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies element identified by `locator` contains text `expected`.</doc>
-<arguments>
-<arg>${HomePage_Menu_Form_Submit_Message}</arg>
-<arg>${message}</arg>
-</arguments>
-<msg timestamp="20160711 22:02:45.357" level="INFO">Verifying element 'id=demo' contains text 'Gurpreet Singh Thank You for Your Submission'.</msg>
-<status status="PASS" endtime="20160711 22:02:45.400" starttime="20160711 22:02:45.357"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:45.400" starttime="20160711 22:02:45.356"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:45.400" starttime="20160711 22:02:45.356"></status>
-</kw>
-<kw type="teardown" name="Teardown Website Url" library="common">
-<kw name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20160711 22:02:46.560" starttime="20160711 22:02:45.401"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:46.560" starttime="20160711 22:02:45.401"></status>
-</kw>
-<status status="PASS" endtime="20160711 22:02:46.560" critical="yes" starttime="20160711 22:02:35.404"></status>
+<status status="PASS" endtime="20160714 13:06:26.282" critical="yes" starttime="20160714 13:06:26.267"></status>
 </test>
-<doc>This is basic form test</doc>
-<status status="PASS" endtime="20160711 22:02:46.560" starttime="20160711 22:02:35.373"></status>
+<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.251"></status>
 </suite>
-<status status="PASS" endtime="20160711 22:02:46.560" starttime="20160711 22:02:23.318"></status>
+<status status="PASS" endtime="20160714 13:06:26.298" starttime="20160714 13:06:25.829"></status>
 </suite>
 <statistics>
 <total>
@@ -417,8 +295,8 @@
 </tag>
 <suite>
 <stat fail="0" id="s1" name="Test" pass="2">Test</stat>
-<stat fail="0" id="s1-s1" name="Form" pass="1">Test.Form</stat>
-<stat fail="0" id="s1-s2" name="Form2" pass="1">Test.Form2</stat>
+<stat fail="0" id="s1-s1" name="GetRequest" pass="1">Test.GetRequest</stat>
+<stat fail="0" id="s1-s2" name="PostRequest" pass="1">Test.PostRequest</stat>
 </suite>
 </statistics>
 <errors>

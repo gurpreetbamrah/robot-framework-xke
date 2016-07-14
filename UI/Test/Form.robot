@@ -15,7 +15,6 @@ websiteform
     Select the Gender   male
     Select the Country   2
     Select the Checkbox
-  #  Select the Dateofbirth
     Upload the Image
     Click the Alert
     Click on the Submit Button
