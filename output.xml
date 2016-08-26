@@ -1,83 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20160826 18:23:55.867" generator="Robot 3.0 (Python 2.7.10 on win32)">
+<robot generated="20160826 23:03:48.260" generator="Robot 3.0 (Python 2.7.10 on win32)">
 <suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\UI\Test\Form.robot" id="s1" name="Form">
 <test id="s1-t1" name="websiteform">
 <kw type="setup" name="Setup Website Url" library="common">
+<kw name="Set Environment Variable" library="OperatingSystem">
+<doc>Sets an environment variable to a specified value.</doc>
+<arguments>
+<arg>webdriver.chrome.driver</arg>
+<arg>C:\\Program Files (x86)\\Jenkins\\tools\\chromedriver\\chromedriver.exe</arg>
+</arguments>
+<msg timestamp="20160826 23:03:48.401" level="INFO">Environment variable 'webdriver.chrome.driver' set to value 'C:\Program Files (x86)\Jenkins\tools\chromedriver\chromedriver.exe'.</msg>
+<status status="PASS" endtime="20160826 23:03:48.401" starttime="20160826 23:03:48.401"></status>
+</kw>
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>${websiteurl}</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20160826 18:23:56.024" level="INFO">Opening browser 'chrome' to base url 'http://gsbamrah.github.io'</msg>
-<status status="PASS" endtime="20160826 18:24:22.027" starttime="20160826 18:23:56.024"></status>
-</kw>
-<kw name="Set Environment Variable" library="OperatingSystem">
-<doc>Sets an environment variable to a specified value.</doc>
-<arguments>
-<arg>webdriver.chrome.driver</arg>
-<arg>${BIN_DIR}/chromedriver.exe</arg>
-</arguments>
-<msg timestamp="20160826 18:24:22.031" level="INFO">Environment variable 'webdriver.chrome.driver' set to value '/chromedriver.exe'.</msg>
-<status status="PASS" endtime="20160826 18:24:22.031" starttime="20160826 18:24:22.027"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${JENKINS_HOME}</arg>
-</arguments>
-<msg timestamp="20160826 18:24:22.035" level="INFO"></msg>
-<status status="PASS" endtime="20160826 18:24:22.035" starttime="20160826 18:24:22.031"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${BIN_DIR}</arg>
-</arguments>
-<msg timestamp="20160826 18:24:22.035" level="INFO"></msg>
-<status status="PASS" endtime="20160826 18:24:22.035" starttime="20160826 18:24:22.035"></status>
+<msg timestamp="20160826 23:03:48.401" level="INFO">Opening browser 'chrome' to base url 'http://gsbamrah.github.io'</msg>
+<status status="PASS" endtime="20160826 23:03:52.694" starttime="20160826 23:03:48.401"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160826 23:03:52.898" starttime="20160826 23:03:52.694"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:52.899" starttime="20160826 23:03:48.401"></status>
+</kw>
+<kw name="Click on the practice form and then select form from the menu" library="Formkeywords">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_PracticeForm}</arg>
+</arguments>
+<msg timestamp="20160826 23:03:52.902" level="INFO">Clicking element 'id=prac-form'.</msg>
+<status status="PASS" endtime="20160826 23:03:53.065" starttime="20160826 23:03:52.901"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>(document.getElementById('${HomePage_Menu_Form}').click())</arg>
+</arguments>
+<msg timestamp="20160826 23:03:53.066" level="INFO">Executing JavaScript:
+(document.getElementById('testform').click())</msg>
+<status status="PASS" endtime="20160826 23:03:53.787" starttime="20160826 23:03:53.065"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:53.787" starttime="20160826 23:03:52.900"></status>
+</kw>
+<kw name="Verify the form Page Url" library="Formkeywords">
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>form.html</arg>
+</arguments>
+<msg timestamp="20160826 23:03:53.796" level="INFO">Current location contains 'form.html'.</msg>
+<status status="PASS" endtime="20160826 23:03:53.796" starttime="20160826 23:03:53.788"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:53.797" starttime="20160826 23:03:53.788"></status>
+</kw>
+<kw name="Enter the first and last Name" library="Formkeywords">
+<arguments>
+<arg>Gurpreet</arg>
+<arg>Singh</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_FirstName}</arg>
+<arg>${Firstname}</arg>
+</arguments>
+<msg timestamp="20160826 23:03:53.799" level="INFO">Typing text 'Gurpreet' into text field 'id=namefirst'</msg>
+<status status="PASS" endtime="20160826 23:03:53.909" starttime="20160826 23:03:53.798"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_LastName}</arg>
+<arg>${LastName}</arg>
+</arguments>
+<msg timestamp="20160826 23:03:53.910" level="INFO">Typing text 'Singh' into text field 'name=lastname'</msg>
+<status status="PASS" endtime="20160826 23:03:54.020" starttime="20160826 23:03:53.909"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:54.020" starttime="20160826 23:03:53.797"></status>
+</kw>
+<kw name="Select the Gender" library="Formkeywords">
+<arguments>
+<arg>male</arg>
+</arguments>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>sex</arg>
+<arg>${gender}</arg>
+</arguments>
+<msg timestamp="20160826 23:03:54.022" level="INFO">Selecting 'male' from radio button 'sex'.</msg>
+<status status="PASS" endtime="20160826 23:03:54.099" starttime="20160826 23:03:54.022"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:54.099" starttime="20160826 23:03:54.021"></status>
+</kw>
+<kw name="Select the Country" library="Formkeywords">
+<arguments>
+<arg>2</arg>
+</arguments>
+<kw name="Select From List By Index" library="Selenium2Library">
+<doc>Selects `*indexes` from list identified by `locator`</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_Country}</arg>
+<arg>${country}</arg>
+</arguments>
+<msg timestamp="20160826 23:03:54.101" level="INFO">Selecting index(es) '2' from list 'name=Country'.</msg>
+<status status="PASS" endtime="20160826 23:03:54.414" starttime="20160826 23:03:54.100"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:54.415" starttime="20160826 23:03:54.100"></status>
+</kw>
+<kw name="Select the Checkbox" library="Formkeywords">
+<kw name="Select Checkbox" library="Selenium2Library">
+<doc>Selects checkbox identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_Checkbox}</arg>
+</arguments>
+<msg timestamp="20160826 23:03:54.437" level="INFO">Selecting checkbox 'name=vehicle1'.</msg>
+<status status="PASS" endtime="20160826 23:03:54.581" starttime="20160826 23:03:54.436"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:54.582" starttime="20160826 23:03:54.435"></status>
+</kw>
+<kw name="Upload the Image" library="Formkeywords">
+<kw name="Choose File" library="Selenium2Library">
+<doc>Inputs the `file_path` into file input field found by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_Image}</arg>
+<arg>C:\\Users\\gurpreetsingh\\PycharmProjects\\robot-framework-xke\\UI\\a.png</arg>
+</arguments>
+<status status="PASS" endtime="20160826 23:03:54.663" starttime="20160826 23:03:54.583"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:03:54.664" starttime="20160826 23:03:54.583"></status>
+</kw>
+<kw name="Click the Alert" library="Formkeywords">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_Form_Alert}</arg>
+</arguments>
+<msg timestamp="20160826 23:03:54.665" level="INFO">Clicking element 'xpath=//input[@value='I am Alert']'.</msg>
 <kw name="Capture Page Screenshot" library="Selenium2Library">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20160826 18:24:42.125" level="FAIL">WebDriverException: Message: unknown error: cannot get automation extension
-from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
-</msg>
-<status status="FAIL" endtime="20160826 18:24:42.125" starttime="20160826 18:24:32.093"></status>
+<msg timestamp="20160826 23:03:54.765" level="FAIL">UnexpectedAlertPresentException: Alert Text: None
+&lt;super: &lt;class 'WebDriverException'&gt;, &lt;UnexpectedAlertPresentException object&gt;&gt;</msg>
+<status status="FAIL" endtime="20160826 23:03:54.765" starttime="20160826 23:03:54.752"></status>
 </kw>
-<msg timestamp="20160826 18:24:42.125" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: unknown error: cannot get automation extension
-from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
+<msg timestamp="20160826 23:03:54.765" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: UnexpectedAlertPresentException: Alert Text: None
+&lt;super: &lt;class 'WebDriverException'&gt;, &lt;UnexpectedAlertPresentException object&gt;&gt;</msg>
+<msg timestamp="20160826 23:03:54.768" level="FAIL">WebDriverException: Message: unknown error: cannot determine loading status
+from unexpected alert open
   (Session info: chrome=52.0.2743.116)
   (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
 </msg>
-<msg timestamp="20160826 18:24:42.140" level="FAIL">WebDriverException: Message: unknown error: cannot get automation extension
-from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
-</msg>
-<status status="FAIL" endtime="20160826 18:24:42.140" starttime="20160826 18:24:22.039"></status>
+<status status="FAIL" endtime="20160826 23:03:54.769" starttime="20160826 23:03:54.665"></status>
 </kw>
-<status status="FAIL" endtime="20160826 18:24:42.140" starttime="20160826 18:23:56.024"></status>
+<status status="FAIL" endtime="20160826 23:03:54.769" starttime="20160826 23:03:54.664"></status>
 </kw>
 <kw type="teardown" name="Teardown Website Url" library="common">
 <kw name="Close Browser" library="Selenium2Library">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20160826 18:24:43.437" starttime="20160826 18:24:42.140"></status>
+<status status="PASS" endtime="20160826 23:03:56.037" starttime="20160826 23:03:54.771"></status>
 </kw>
-<status status="PASS" endtime="20160826 18:24:43.437" starttime="20160826 18:24:42.140"></status>
+<status status="PASS" endtime="20160826 23:03:56.037" starttime="20160826 23:03:54.770"></status>
 </kw>
-<status status="FAIL" endtime="20160826 18:24:43.437" critical="yes" starttime="20160826 18:23:56.024">Setup failed:
-WebDriverException: Message: unknown error: cannot get automation extension
-from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
+<status status="FAIL" endtime="20160826 23:03:56.037" critical="yes" starttime="20160826 23:03:48.401">WebDriverException: Message: unknown error: cannot determine loading status
+from unexpected alert open
   (Session info: chrome=52.0.2743.116)
   (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
 </status>
 </test>
 <doc>This is basic form test</doc>
-<status status="FAIL" endtime="20160826 18:24:43.437" starttime="20160826 18:23:55.883"></status>
+<status status="FAIL" endtime="20160826 23:03:56.041" starttime="20160826 23:03:48.260"></status>
 </suite>
 <statistics>
 <total>
@@ -91,10 +187,7 @@ from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlm
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20160826 18:24:42.125" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: unknown error: cannot get automation extension
-from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
-</msg>
+<msg timestamp="20160826 23:03:54.765" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: UnexpectedAlertPresentException: Alert Text: None
+&lt;super: &lt;class 'WebDriverException'&gt;, &lt;UnexpectedAlertPresentException object&gt;&gt;</msg>
 </errors>
 </robot>
