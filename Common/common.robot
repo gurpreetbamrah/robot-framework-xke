@@ -1,13 +1,15 @@
 *** Settings ***
 Documentation    Suite description
-Library   Selenium2Library
+Library          Selenium2Library
+Library          OperatingSystem
 
 
 *** Keywords ***
 
 Setup Website Url
    open browser       ${websiteurl}       chrome
-   maximize browser window
+    Set Environment Variable  webdriver.chrome.driver  ${BIN_DIR}/chromedriver.exe
+     maximize browser window
 Teardown Website Url
    close browser
 
@@ -16,4 +18,5 @@ Teardown Website Url
 ${websiteurl}       http://gsbamrah.github.io
 ${Getrequesturl}    http://localhost:8080/robot
 ${Postrequesturl}   http://localhost:8080/user
+${BIN_DIR}
 

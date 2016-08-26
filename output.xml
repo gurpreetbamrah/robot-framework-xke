@@ -1,304 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20160714 13:06:25.814" generator="Robot 3.0 (Python 2.7.10 on win32)">
-<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\Rest-Api\Test" id="s1" name="Test">
-<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\Rest-Api\Test\GetRequest.robot" id="s1-s1" name="GetRequest">
-<test id="s1-s1-t1" name="Get Request Demo">
-<kw name="I send the Http Get Request" library="apikeywords">
+<robot generated="20160826 18:23:55.867" generator="Robot 3.0 (Python 2.7.10 on win32)">
+<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\UI\Test\Form.robot" id="s1" name="Form">
+<test id="s1-t1" name="websiteform">
+<kw type="setup" name="Setup Website Url" library="common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
 <arguments>
-<arg>${getrequesturl}</arg>
+<arg>${websiteurl}</arg>
+<arg>chrome</arg>
 </arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20160826 18:23:56.024" level="INFO">Opening browser 'chrome' to base url 'http://gsbamrah.github.io'</msg>
+<status status="PASS" endtime="20160826 18:24:22.027" starttime="20160826 18:23:56.024"></status>
+</kw>
+<kw name="Set Environment Variable" library="OperatingSystem">
+<doc>Sets an environment variable to a specified value.</doc>
 <arguments>
-<arg>testurl</arg>
-<arg>${URL}</arg>
+<arg>webdriver.chrome.driver</arg>
+<arg>${BIN_DIR}/chromedriver.exe</arg>
 </arguments>
-<msg timestamp="20160714 13:06:26.032" level="INFO">Creating Session using : alias=testurl, url=http://localhost:8080/robot, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20160714 13:06:26.032" starttime="20160714 13:06:26.032"></status>
+<msg timestamp="20160826 18:24:22.031" level="INFO">Environment variable 'webdriver.chrome.driver' set to value '/chromedriver.exe'.</msg>
+<status status="PASS" endtime="20160826 18:24:22.031" starttime="20160826 18:24:22.027"></status>
 </kw>
-<kw name="Get Request" library="RequestsLibrary">
-<doc>Send a GET request on the session object found using the</doc>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>testurl</arg>
-<arg>/</arg>
+<arg>${JENKINS_HOME}</arg>
 </arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.032" level="INFO">Starting new HTTP connection (1): localhost</msg>
-<msg timestamp="20160714 13:06:26.235" level="INFO">Get Request using : alias=testurl, uri=/, headers=None </msg>
-<msg timestamp="20160714 13:06:26.235" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.032"></status>
+<msg timestamp="20160826 18:24:22.035" level="INFO"></msg>
+<status status="PASS" endtime="20160826 18:24:22.035" starttime="20160826 18:24:22.031"></status>
 </kw>
-<msg timestamp="20160714 13:06:26.235" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.032"></status>
-</kw>
-<kw name="and I validate the Response code" library="apikeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${response}</arg>
-<arg>200</arg>
+<arg>${BIN_DIR}</arg>
 </arguments>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${response.status_code}</arg>
-<arg>${response_code}</arg>
-</arguments>
-<msg timestamp="20160714 13:06:26.235" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.235"></status>
+<msg timestamp="20160826 18:24:22.035" level="INFO"></msg>
+<status status="PASS" endtime="20160826 18:24:22.035" starttime="20160826 18:24:22.035"></status>
 </kw>
-<status status="PASS" endtime="20160714 13:06:26.235" starttime="20160714 13:06:26.235"></status>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20160826 18:24:42.125" level="FAIL">WebDriverException: Message: unknown error: cannot get automation extension
+from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
+  (Session info: chrome=52.0.2743.116)
+  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
+</msg>
+<status status="FAIL" endtime="20160826 18:24:42.125" starttime="20160826 18:24:32.093"></status>
 </kw>
-<kw name="I send HTTP Request with the Parameter" library="apikeywords">
-<arguments>
-<arg>${Param1}</arg>
-<arg>Gurpreet</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<kw name="Get Request" library="RequestsLibrary">
-<doc>Send a GET request on the session object found using the</doc>
-<arguments>
-<arg>testurl</arg>
-<arg>?${param}=${value}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.251" level="INFO">Get Request using : alias=testurl, uri=?name=Gurpreet, headers=None </msg>
-<msg timestamp="20160714 13:06:26.251" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.235"></status>
+<msg timestamp="20160826 18:24:42.125" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: unknown error: cannot get automation extension
+from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
+  (Session info: chrome=52.0.2743.116)
+  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
+</msg>
+<msg timestamp="20160826 18:24:42.140" level="FAIL">WebDriverException: Message: unknown error: cannot get automation extension
+from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
+  (Session info: chrome=52.0.2743.116)
+  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
+</msg>
+<status status="FAIL" endtime="20160826 18:24:42.140" starttime="20160826 18:24:22.039"></status>
 </kw>
-<msg timestamp="20160714 13:06:26.251" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.235"></status>
+<status status="FAIL" endtime="20160826 18:24:42.140" starttime="20160826 18:23:56.024"></status>
 </kw>
-<kw name="I validate the Response code" library="apikeywords">
-<arguments>
-<arg>${response}</arg>
-<arg>200</arg>
-</arguments>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${response.status_code}</arg>
-<arg>${response_code}</arg>
-</arguments>
-<msg timestamp="20160714 13:06:26.251" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
+<kw type="teardown" name="Teardown Website Url" library="common">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160826 18:24:43.437" starttime="20160826 18:24:42.140"></status>
 </kw>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
+<status status="PASS" endtime="20160826 18:24:43.437" starttime="20160826 18:24:42.140"></status>
 </kw>
-<kw name="and I validate the Get Request Response" library="apikeywords">
-<arguments>
-<arg>${response}</arg>
-<arg>${Responsecontent}</arg>
-<arg>Hello, Gurpreet!</arg>
-<arg>${Responseid}</arg>
-<arg>1</arg>
-</arguments>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>${response.json()}</arg>
-</arguments>
-<assign>
-<var>${json}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.251" level="INFO">${json} = {u'content': u'Hello, Gurpreet!', u'id': 1}</msg>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<arguments>
-<arg>${json}</arg>
-<arg>${Responsecontent}</arg>
-</arguments>
-<assign>
-<var>${contentvaluefromresponse}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.251" level="INFO">${contentvaluefromresponse} = Hello, Gurpreet!</msg>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<doc>Fails if the given objects are unequal.</doc>
-<arguments>
-<arg>${contentvaluefromresponse}</arg>
-<arg>${contentvalue}</arg>
-</arguments>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<arguments>
-<arg>${json}</arg>
-<arg>${Responseid}</arg>
-</arguments>
-<assign>
-<var>${idvaluefromresponse}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.251" level="INFO">${idvaluefromresponse} = 1</msg>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${idvaluefromresponse}</arg>
-<arg>${idvalue}</arg>
-</arguments>
-<msg timestamp="20160714 13:06:26.251" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
-</kw>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:26.251"></status>
-</kw>
-<status status="PASS" endtime="20160714 13:06:26.251" critical="yes" starttime="20160714 13:06:26.032"></status>
+<status status="FAIL" endtime="20160826 18:24:43.437" critical="yes" starttime="20160826 18:23:56.024">Setup failed:
+WebDriverException: Message: unknown error: cannot get automation extension
+from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
+  (Session info: chrome=52.0.2743.116)
+  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
+</status>
 </test>
-<status status="PASS" endtime="20160714 13:06:26.251" starttime="20160714 13:06:25.845"></status>
-</suite>
-<suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\Rest-Api\Test\PostRequest.robot" id="s1-s2" name="PostRequest">
-<test id="s1-s2-t1" name="Post Request Demo">
-<kw name="I send the Http Post Request" library="apikeywords">
-<arguments>
-<arg>${Postrequesturl}</arg>
-<arg>${RequestParam1}</arg>
-<arg>${emailID}</arg>
-<arg>${RequestParam2}</arg>
-<arg>${activationsuccess}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>testurl2</arg>
-<arg>${Postrequesturl}</arg>
-</arguments>
-<msg timestamp="20160714 13:06:26.267" level="INFO">Creating Session using : alias=testurl2, url=http://localhost:8080/user, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20160714 13:06:26.267" starttime="20160714 13:06:26.267"></status>
-</kw>
-<kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the</doc>
-<arguments>
-<arg>testurl2</arg>
-<arg>?${RequestParam1}=${emailID}&amp;${RequestParam2}=${activatevalue}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.267" level="INFO">Starting new HTTP connection (1): localhost</msg>
-<msg timestamp="20160714 13:06:26.282" level="INFO">Post Request using : alias=testurl2, uri=?email=gurpreetsingh@xebia.com&amp;activate=1, data=None,                     headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20160714 13:06:26.282" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.267"></status>
-</kw>
-<msg timestamp="20160714 13:06:26.282" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.267"></status>
-</kw>
-<kw name="I validate the Response code" library="apikeywords">
-<arguments>
-<arg>${response}</arg>
-<arg>200</arg>
-</arguments>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${response.status_code}</arg>
-<arg>${response_code}</arg>
-</arguments>
-<msg timestamp="20160714 13:06:26.282" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<kw name="and I validate the Post Request Response" library="apikeywords">
-<arguments>
-<arg>${response}</arg>
-<arg>user activated successfully</arg>
-<arg>${emailID}</arg>
-</arguments>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>${response.json()}</arg>
-</arguments>
-<assign>
-<var>${json}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.282" level="INFO">${json} = {u'status': u'user activated successfully', u'email': u'gurpreetsingh@xebia.com'}</msg>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<arguments>
-<arg>${json}</arg>
-<arg>status</arg>
-</arguments>
-<assign>
-<var>${statusfromresponse}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.282" level="INFO">${statusfromresponse} = user activated successfully</msg>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<doc>Fails if the given objects are unequal.</doc>
-<arguments>
-<arg>${statusfromresponse}</arg>
-<arg>${status}</arg>
-</arguments>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<arguments>
-<arg>${json}</arg>
-<arg>email</arg>
-</arguments>
-<assign>
-<var>${emailfromresponse}</var>
-</assign>
-<msg timestamp="20160714 13:06:26.282" level="INFO">${emailfromresponse} = gurpreetsingh@xebia.com</msg>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<doc>Fails if the given objects are unequal.</doc>
-<arguments>
-<arg>${emailfromresponse}</arg>
-<arg>${email}</arg>
-</arguments>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.282"></status>
-</kw>
-<status status="PASS" endtime="20160714 13:06:26.282" critical="yes" starttime="20160714 13:06:26.267"></status>
-</test>
-<status status="PASS" endtime="20160714 13:06:26.282" starttime="20160714 13:06:26.251"></status>
-</suite>
-<status status="PASS" endtime="20160714 13:06:26.298" starttime="20160714 13:06:25.829"></status>
+<doc>This is basic form test</doc>
+<status status="FAIL" endtime="20160826 18:24:43.437" starttime="20160826 18:23:55.883"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="2">Critical Tests</stat>
-<stat fail="0" pass="2">All Tests</stat>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Test" pass="2">Test</stat>
-<stat fail="0" id="s1-s1" name="GetRequest" pass="1">Test.GetRequest</stat>
-<stat fail="0" id="s1-s2" name="PostRequest" pass="1">Test.PostRequest</stat>
+<stat fail="1" id="s1" name="Form" pass="0">Form</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20160826 18:24:42.125" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: unknown error: cannot get automation extension
+from unknown error: page could not be found: chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html
+  (Session info: chrome=52.0.2743.116)
+  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Windows NT 6.3 x86_64)
+</msg>
 </errors>
 </robot>
