@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a80ce9d7-0268-402f-9d7c-33a5da814da5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/common.robot" afterPath="$PROJECT_DIR$/Common/common.robot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log.html" afterPath="$PROJECT_DIR$/log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output.xml" afterPath="$PROJECT_DIR$/output.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report.html" afterPath="$PROJECT_DIR$/report.html" />
     </list>
     <ignored path="robot-framework-xke.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +46,8 @@
       <file leaf-file-name="common.robot" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Common/common.robot">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7638889">
-              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.3861111">
+              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
               <folding>
                 <element signature="e#0#118#0" expanded="true" />
               </folding>
@@ -406,7 +402,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1362" height="728" extended-state="1" />
+    <frame x="0" y="0" width="1362" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33006042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -818,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Common/common.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7638889">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.3861111">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
           <folding>
             <element signature="e#0#118#0" expanded="true" />
           </folding>

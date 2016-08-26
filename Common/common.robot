@@ -7,9 +7,9 @@ Library          OperatingSystem
 *** Keywords ***
 
 Setup Website Url
+   Set Environment Variable  webdriver.chrome.driver  ${BIN_DIR}/chromedriver.exe
    open browser       ${websiteurl}       chrome
-    Set Environment Variable  webdriver.chrome.driver  ${BIN_DIR}/chromedriver.exe
-     maximize browser window
+   maximize browser window
 Teardown Website Url
    close browser
 
