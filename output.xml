@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20160826 23:08:26.170" generator="Robot 3.0 (Python 2.7.10 on win32)">
+<robot generated="20160826 23:28:17.816" generator="Robot 3.0 (Python 2.7.10 on win32)">
 <suite source="C:\Users\gurpreetsingh\Desktop\myworkspace\robot-framework-xke\UI\Test\Form.robot" id="s1" name="Form">
 <test id="s1-t1" name="websiteform">
 <kw type="setup" name="Setup Website Url" library="common">
@@ -7,34 +7,64 @@
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>${websiteurl}</arg>
-<arg>firefox</arg>
+<arg>phantomjs</arg>
 </arguments>
-<msg timestamp="20160826 23:08:26.346" level="INFO">Opening browser 'firefox' to base url 'http://gsbamrah.github.io'</msg>
+<msg timestamp="20160826 23:28:17.964" level="INFO">Opening browser 'phantomjs' to base url 'http://gsbamrah.github.io'</msg>
+<status status="PASS" endtime="20160826 23:28:25.275" starttime="20160826 23:28:17.964"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160826 23:28:25.287" starttime="20160826 23:28:25.275"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:28:25.287" starttime="20160826 23:28:17.964"></status>
+</kw>
+<kw name="Click on the practice form and then select form from the menu" library="Formkeywords">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${HomePage_Menu_PracticeForm}</arg>
+</arguments>
+<msg timestamp="20160826 23:28:25.291" level="INFO">Clicking element 'id=prac-form'.</msg>
+<status status="PASS" endtime="20160826 23:28:25.386" starttime="20160826 23:28:25.291"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>(document.getElementById('${HomePage_Menu_Form}').click())</arg>
+</arguments>
+<msg timestamp="20160826 23:28:25.386" level="INFO">Executing JavaScript:
+(document.getElementById('testform').click())</msg>
+<status status="PASS" endtime="20160826 23:28:25.398" starttime="20160826 23:28:25.386"></status>
+</kw>
+<status status="PASS" endtime="20160826 23:28:25.398" starttime="20160826 23:28:25.291"></status>
+</kw>
+<kw name="Verify the form Page Url" library="Formkeywords">
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>form.html</arg>
+</arguments>
 <kw name="Capture Page Screenshot" library="Selenium2Library">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20160826 23:08:35.969" level="FAIL">No browser is open</msg>
-<status status="FAIL" endtime="20160826 23:08:35.969" starttime="20160826 23:08:35.961"></status>
+<msg timestamp="20160826 23:28:25.626" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20160826 23:28:25.626" starttime="20160826 23:28:25.410"></status>
 </kw>
-<msg timestamp="20160826 23:08:35.969" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
-<msg timestamp="20160826 23:08:35.983" level="FAIL">WebDriverException: Message: The browser appears to have exited before we could connect. If you specified a log_file in the FirefoxBinary constructor, check it for details.
-</msg>
-<status status="FAIL" endtime="20160826 23:08:35.983" starttime="20160826 23:08:26.346"></status>
+<msg timestamp="20160826 23:28:25.626" level="FAIL">Location should have contained 'form.html' but it was 'http://gsbamrah.github.io/'.</msg>
+<status status="FAIL" endtime="20160826 23:28:25.626" starttime="20160826 23:28:25.402"></status>
 </kw>
-<status status="FAIL" endtime="20160826 23:08:35.983" starttime="20160826 23:08:26.346"></status>
+<status status="FAIL" endtime="20160826 23:28:25.626" starttime="20160826 23:28:25.402"></status>
 </kw>
 <kw type="teardown" name="Teardown Website Url" library="common">
 <kw name="Close Browser" library="Selenium2Library">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20160826 23:08:35.988" starttime="20160826 23:08:35.988"></status>
+<status status="PASS" endtime="20160826 23:28:25.650" starttime="20160826 23:28:25.630"></status>
 </kw>
-<status status="PASS" endtime="20160826 23:08:35.988" starttime="20160826 23:08:35.983"></status>
+<status status="PASS" endtime="20160826 23:28:25.650" starttime="20160826 23:28:25.630"></status>
 </kw>
-<status status="FAIL" endtime="20160826 23:08:35.988" critical="yes" starttime="20160826 23:08:26.342">Setup failed:
-WebDriverException: Message: The browser appears to have exited before we could connect. If you specified a log_file in the FirefoxBinary constructor, check it for details.
-</status>
+<status status="FAIL" endtime="20160826 23:28:25.654" critical="yes" starttime="20160826 23:28:17.964">Location should have contained 'form.html' but it was 'http://gsbamrah.github.io/'.</status>
 </test>
 <doc>This is basic form test</doc>
-<status status="FAIL" endtime="20160826 23:08:35.996" starttime="20160826 23:08:26.178"></status>
+<status status="FAIL" endtime="20160826 23:28:25.658" starttime="20160826 23:28:17.820"></status>
 </suite>
 <statistics>
 <total>
@@ -48,6 +78,5 @@ WebDriverException: Message: The browser appears to have exited before we could 
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20160826 23:08:35.969" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
 </errors>
 </robot>

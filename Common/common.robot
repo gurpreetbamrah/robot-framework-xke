@@ -8,7 +8,7 @@ Library          OperatingSystem
 
 Setup Website Url
   #Set Environment Variable  webdriver.chrome.driver  C:\\Program Files (x86)\\Jenkins\\tools\\chromedriver\\chromedriver.exe
-   open browser       ${websiteurl}       firefox
+   open browser       ${websiteurl}       phantomjs
    maximize browser window
 Teardown Website Url
    close browser
