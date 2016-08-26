@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a80ce9d7-0268-402f-9d7c-33a5da814da5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/common.robot" afterPath="$PROJECT_DIR$/Common/common.robot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log.html" afterPath="$PROJECT_DIR$/log.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output.xml" afterPath="$PROJECT_DIR$/output.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report.html" afterPath="$PROJECT_DIR$/report.html" />
     </list>
     <ignored path="robot-framework-xke.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +47,8 @@
       <file leaf-file-name="common.robot" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Common/common.robot">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41689372">
-              <caret line="9" column="108" selection-start-line="9" selection-start-column="108" selection-end-line="9" selection-end-column="108" />
+            <state vertical-scroll-proportion="0.46321526">
+              <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
               <folding>
                 <element signature="e#0#118#0" expanded="true" />
               </folding>
@@ -818,8 +815,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Common/common.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41689372">
-          <caret line="9" column="108" selection-start-line="9" selection-start-column="108" selection-end-line="9" selection-end-column="108" />
+        <state vertical-scroll-proportion="0.46321526">
+          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
           <folding>
             <element signature="e#0#118#0" expanded="true" />
           </folding>
